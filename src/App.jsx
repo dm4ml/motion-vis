@@ -114,7 +114,11 @@ export default function App() {
         }}
       >
         <div>
-          <a href="https://github.com/dm4ml/motion-vis" target="_blank">
+          <a
+            href="https://github.com/dm4ml/motion-vis"
+            target="_blank"
+            rel="noreferrer"
+          >
             <button style={{ marginRight: "10px" }}>
               <FontAwesomeIcon icon={faGithub} />
             </button>
