@@ -24,4 +24,3 @@ dist-ssr
 *.sw?
 
 *.DS_Store
-package-lock.json
