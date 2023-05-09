@@ -17,6 +17,9 @@ import { StateNode, KeyNode, InferNode, FitNode } from "./nodes";
 
 import data from "./samplegraph.json";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
 const rfStyle = {
   backgroundColor: "#B8CEFF",
 };
@@ -94,7 +97,7 @@ export default function App() {
       style={{
         display: "flex",
         justifyContent: "flex-end",
-        alignItems: "flex-end",
+        alignItems: "flex-start",
       }}
     >
       <input
@@ -110,11 +113,18 @@ export default function App() {
           alignItems: "flex-end",
         }}
       >
-        <button style={{ marginBottom: "10px" }} onClick={handleButtonClick}>
-          Upload JSON
-        </button>
+        <div>
+          <a href="https://github.com/dm4ml/motion-vis" target="_blank">
+            <button style={{ marginRight: "10px" }}>
+              <FontAwesomeIcon icon={faGithub} />
+            </button>
+          </a>
+          <button style={{ marginBottom: "10px" }} onClick={handleButtonClick}>
+            Upload JSON
+          </button>
+        </div>
         <span style={{ fontSize: "x-small", fontStyle: "italic" }}>
-          {filename}
+          Viewing: {filename}
         </span>
       </div>
       <ToastContainer style={{ fontSize: "small" }} />
