@@ -1,6 +1,6 @@
 # Motion Component Visualizer
 
-This repository contains the source code for the [Motion](https://www.github.com/dm4ml/motion) component visualization tool, hosted with Github Pages.
+This repository contains the source code for the [Motion](https://www.github.com/dm4ml/motion) component visualization tool, which is useful to understand the dataflows and state in a component.
 
 ## Usage
 
