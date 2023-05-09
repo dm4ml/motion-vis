@@ -6,7 +6,7 @@ This repository contains the source code for the Motion component visualization 
 
 To use the tool, visit the [Github Pages site](https://dm4ml.github.io/motion-vis). You'll be prompted to upload a Motion component file. Once uploaded, the tool will display the component's state space and allow you to interact with it.
 
-To get a Motion component file, you should run the CLI tool in the repository with your Motion component defined:
+To get a Motion component file, you should run the CLI tool in the repository with your Motion component:
 
 ```bash
 $ motion vis <filename>::<component_object>
