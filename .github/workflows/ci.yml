@@ -22,7 +22,7 @@ jobs:
           node-version: 14
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run ESLint
         run: npx eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0
