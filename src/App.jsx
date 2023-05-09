@@ -15,6 +15,8 @@ import "./nodes.css";
 
 import { StateNode, KeyNode, InferNode, FitNode } from "./nodes";
 
+import data from './samplegraph.json';
+
 const rfStyle = {
   backgroundColor: "#B8CEFF",
 };
@@ -26,8 +28,8 @@ const nodeTypes = {
 };
 
 export default function App() {
-  const [jsonData, setJsonData] = useState({});
-  const [filename, setFilename] = useState("");
+  const [jsonData, setJsonData] = useState(data);
+  const [filename, setFilename] = useState("sample_component.json");
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -65,8 +67,8 @@ export default function App() {
     document.getElementById("fileInput").click();
   };
 
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState(jsonData.nodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(jsonData.edges);
 
   let modEdges = edges.map((edge) => {
     return {
