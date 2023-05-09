@@ -15,7 +15,7 @@ import "./nodes.css";
 
 import { StateNode, KeyNode, InferNode, FitNode } from "./nodes";
 
-import data from './samplegraph.json';
+import data from "./samplegraph.json";
 
 const rfStyle = {
   backgroundColor: "#B8CEFF",
