@@ -20,7 +20,7 @@
             },
             "data": {
                 "label": "normalize",
-                "udf": "@c.infer(\"number\")\ndef normalize(state, value):\n    if state[\"mean\"] is None:\n        return None\n    return abs(value - state[\"mean\"]) / state[\"std\"]\n"
+                "udf": "@ZScoreComponent.infer(\"number\")\ndef normalize(state, value):\n    if state[\"mean\"] is None:\n        return None\n    return abs(value - state[\"mean\"]) / state[\"std\"]\n"
             },
             "type": "infer"
         },
@@ -32,7 +32,7 @@
             },
             "data": {
                 "label": "update",
-                "udf": "@c.fit(\"number\", batch_size=10)\ndef update(state, values, infer_results):\n    # We don't do anything with the results, but we could!\n    mean = sum(values) / len(values)\n    std = sum((n - mean) ** 2 for n in values) / len(values)\n    return {\"mean\": mean, \"std\": std}\n",
+                "udf": "@ZScoreComponent.fit(\"number\", batch_size=10)\ndef update(state, values, infer_results):\n    # We don't do anything with the results, but we could!\n    mean = sum(values) / len(values)\n    std = sum((n - mean) ** 2 for n in values) / len(values)\n    return {\"mean\": mean, \"std\": std}\n",
                 "batch_size": 10
             },
             "type": "fit"
