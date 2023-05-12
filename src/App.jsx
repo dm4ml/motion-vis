@@ -167,7 +167,7 @@ export default function App() {
         >
           {uploadComponent}
         </Panel>
-        <Controls showFitView={false} showInteractive={false} />
+        <Controls showFitView={true} showInteractive={false} />
         <MiniMap zoomable pannable />
       </ReactFlow>
     </div>
