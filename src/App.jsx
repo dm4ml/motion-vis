@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "reactflow/dist/style.css";
 import "./nodes.css";
 
-import { StateNode, KeyNode, InferNode, FitNode } from "./nodes";
+import { StateNode, KeyNode, ServeNode, UpdateNode } from "./nodes";
 
 import data from "./samplegraph.json";
 
@@ -26,8 +26,8 @@ const rfStyle = {
 const nodeTypes = {
   state: StateNode,
   key: KeyNode,
-  infer: InferNode,
-  fit: FitNode,
+  serve: ServeNode,
+  update: UpdateNode,
 };
 
 export default function App() {

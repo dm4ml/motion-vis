@@ -1,5 +1,5 @@
 {
-    "name": "Z-Score",
+    "name": "ZScore",
     "nodes": [
         {
             "id": "2",
@@ -19,10 +19,10 @@
                 "y": 200
             },
             "data": {
-                "label": "normalize",
-                "udf": "@ZScoreComponent.infer(\"number\")\ndef normalize(state, value):\n    if state[\"mean\"] is None:\n        return None\n    return abs(value - state[\"mean\"]) / state[\"std\"]\n"
+                "label": "serve",
+                "udf": "@ZScoreComponent.serve(\"number\")\ndef serve(state, props):  # (1)!\n    if state[\"mean\"] is None:\n        return None\n    return abs(props[\"value\"] - state[\"mean\"]) / state[\"std\"]\n"
             },
-            "type": "infer"
+            "type": "serve"
         },
         {
             "id": "4",
@@ -32,10 +32,9 @@
             },
             "data": {
                 "label": "update",
-                "udf": "@ZScoreComponent.fit(\"number\", batch_size=10)\ndef update(state, values, infer_results):\n    # We don't do anything with the results, but we could!\n    mean = sum(values) / len(values)\n    std = sum((n - mean) ** 2 for n in values) / len(values)\n    return {\"mean\": mean, \"std\": std}\n",
-                "batch_size": 10
+                "udf": "@ZScoreComponent.update(\"number\")\ndef update(state, props):  # (2)!\n    # Result of the serve op can be accessed via\n    # props.serve_result\n    # We don't do anything with the results, but we could!\n    value_list = state[\"values\"]\n    value_list.append(props[\"value\"])\n\n    mean = sum(value_list) / len(value_list)\n    std = sum((n - mean) ** 2 for n in value_list) / len(value_list)\n    return {\"mean\": mean, \"std\": std, \"values\": value_list}\n"
             },
-            "type": "fit"
+            "type": "update"
         },
         {
             "id": "1",
@@ -67,8 +66,7 @@
             "target": "1",
             "source": "4",
             "sourceHandle": "top",
-            "animated": true,
-            "label": "batch_size: 10"
+            "animated": true
         },
         {
             "id": "e3-4",

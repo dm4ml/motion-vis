@@ -67,7 +67,7 @@ function CodeNode({ data, nodetype }) {
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
-  const color = nodetype === "Infer" ? "#ffe9b8" : "#ffb8ce";
+  const color = nodetype === "Serve" ? "#ffe9b8" : "#ffb8ce";
 
   return (
     <div style={{ width: "100%" }}>
@@ -91,10 +91,10 @@ function CodeNode({ data, nodetype }) {
   );
 }
 
-export function InferNode({ data, isConnectable }) {
+export function ServeNode({ data, isConnectable }) {
   return (
     <div className="code-node">
-      <CodeNode data={data} nodetype="Infer" />
+      <CodeNode data={data} nodetype="Serve" />
       <Handle
         type="target"
         position={Position.Top}
@@ -117,10 +117,10 @@ export function InferNode({ data, isConnectable }) {
   );
 }
 
-export function FitNode({ data, isConnectable }) {
+export function UpdateNode({ data, isConnectable }) {
   return (
     <div className="code-node">
-      <CodeNode data={data} nodetype="Fit" />
+      <CodeNode data={data} nodetype="Update" />
       <Handle
         type="source"
         position={Position.Top}
